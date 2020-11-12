@@ -18,4 +18,4 @@ Route::get('/Ingresar', 'PiezaController@create');
 Route::post('/Ingresar/Subir', 'PiezaController@store');
 Route::get('/Editar/{id}',  "PiezaController@edit");
 Route::post('/Actualizar', "PiezaController@update");
-
+Route::get('/Eliminar/{id}',  "PiezaController@destroy");

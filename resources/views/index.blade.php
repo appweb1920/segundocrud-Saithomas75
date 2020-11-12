@@ -31,19 +31,10 @@
             <td>{{ $p->nombre }}</td>
             <td>{{ $p->descripcion }}</td>
             <td>{{ $p->cantidad }}</td>
-            <td>${{ $p->costo }}</td>
+            <td>$ {{$p->costo }}</td>
             <td>
-                <form action="#" method="POST">
-   
-                    <a class="btn btn-info" href="#">Mostrar</a>
-    
-                    <a class="btn btn-primary" href="/Editar/{{$p->id}}">Editar</a>
-   
-                    @csrf
-                    @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                <a class="btn btn-primary" href="/Editar/{{$p->id}}">Editar</a>
+                <a class="btn btn-danger" href="/Eliminar/{{$p->id}}">Eliminar</a>
             </td>
         </tr>
         @endforeach

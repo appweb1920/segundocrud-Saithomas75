@@ -45,7 +45,7 @@ class PiezaController extends Controller
   
         Pieza::create($request->all());
    
-        return view('index');
+        return redirect('/');
     }
 
     /**
@@ -90,10 +90,9 @@ class PiezaController extends Controller
      * @param  \App\Pieza  $pieza
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pieza $pieza)
+    public function destroy($id)
     {
-        $product->delete();
-  
-        return redirect()->route('piezas.index')->with('success','Pieza deleted successfully');
+        $pieza=Pieza::where('id', $id)->delete();
+        return redirect('/');
     }
 }
