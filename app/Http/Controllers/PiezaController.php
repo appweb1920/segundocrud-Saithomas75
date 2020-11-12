@@ -16,7 +16,7 @@ class PiezaController extends Controller
     {
         $pieza = Pieza::latest()->paginate(5);
   
-        return view('piezas.index',compact('pieza'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('index',compact('pieza'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -26,7 +26,7 @@ class PiezaController extends Controller
      */
     public function create()
     {
-        return view('piezas.create');
+        return view('create');
     }
 
     /**
