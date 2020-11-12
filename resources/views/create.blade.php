@@ -29,7 +29,7 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
+                <strong>Nombre:</strong>
                 <input type="text" name="nombre" class="form-control" placeholder="Nombre">
             </div>
         </div>

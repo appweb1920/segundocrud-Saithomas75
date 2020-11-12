@@ -56,7 +56,7 @@ class PiezaController extends Controller
      */
     public function show(Pieza $pieza)
     {
-        return view('piezas.show',compact('pieza'));
+        return view('show');
     }
 
     /**
@@ -65,9 +65,10 @@ class PiezaController extends Controller
      * @param  \App\Pieza  $pieza
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pieza $pieza)
+    public function edit($id)
     {
-        return view('piezas.edit',compact('pieza'));
+        $pieza = Pieza::where('id', $id)->first();
+        return view('edit')->with('pieza',$pieza);
     }
 
     /**
@@ -77,19 +78,10 @@ class PiezaController extends Controller
      * @param  \App\Pieza  $pieza
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pieza $pieza)
+    public function update(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'cantidad' => 'required',
-            'costo' => 'required',
-        ]);
-  
-        $product->update($request->all());
-  
-        return redirect()->route('piezas.index')
-                        ->with('success','Pieza updated successfully');
+        $pieza = Pieza::where('id', $request->id)->update(['nombre' => $request->nombre, 'descripcion' => $request->descripcion, 'cantidad' => $request->cantidad, 'costo' => $request->costo]);
+        return redirect('/');
     }
 
     /**

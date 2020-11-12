@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PiezaController@index');
-
 Route::get('/Ingresar', 'PiezaController@create');
-
 Route::post('/Ingresar/Subir', 'PiezaController@store');
+Route::get('/Editar/{id}',  "PiezaController@edit");
+Route::post('/Actualizar', "PiezaController@update");
+
