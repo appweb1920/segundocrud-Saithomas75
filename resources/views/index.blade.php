@@ -23,13 +23,15 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Cantidad</th>
+            <th>Costo</th>
             <th width="280px">Editar</th>
         </tr>
         @foreach ($pieza as $p)
         <tr>
-            <td>{{ ++$i }}</td>
             <td>{{ $p->nombre }}</td>
             <td>{{ $p->descripcion }}</td>
+            <td>{{ $p->cantidad }}</td>
+            <td>${{ $p->costo }}</td>
             <td>
                 <form action="#" method="POST">
    
@@ -46,7 +48,5 @@
         </tr>
         @endforeach
     </table>
-  
-    {!! $pieza->links() !!}
       
 @endsection

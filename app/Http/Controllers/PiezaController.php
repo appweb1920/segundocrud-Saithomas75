@@ -14,9 +14,8 @@ class PiezaController extends Controller
      */
     public function index()
     {
-        $pieza = Pieza::latest()->paginate(5);
-  
-        return view('index',compact('pieza'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $pieza = Pieza::all();
+        return view("index")->with('pieza',$pieza);
     }
 
     /**
@@ -46,8 +45,7 @@ class PiezaController extends Controller
   
         Pieza::create($request->all());
    
-        return redirect()->route('piezas.index')
-                        ->with('success','Pieza created successfully.');
+        return view('index');
     }
 
     /**
