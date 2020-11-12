@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pieza extends Model
 {
+
+    use SoftDeletes;
+    
     protected $fillable = [
         'nombre', 'descripcion', 'cantidad', 'costo' 
     ];

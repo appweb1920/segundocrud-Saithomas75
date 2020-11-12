@@ -26,18 +26,20 @@
             <th>Costo</th>
             <th width="280px">Editar</th>
         </tr>
-        @foreach ($pieza as $p)
-        <tr>
-            <td>{{ $p->nombre }}</td>
-            <td>{{ $p->descripcion }}</td>
-            <td>{{ $p->cantidad }}</td>
-            <td>$ {{$p->costo }}</td>
-            <td>
-                <a class="btn btn-primary" href="/Editar/{{$p->id}}">Editar</a>
-                <a class="btn btn-danger" href="/Eliminar/{{$p->id}}">Eliminar</a>
-            </td>
-        </tr>
-        @endforeach
+        @if(!is_null($pieza))
+            @foreach ($pieza as $p)
+            <tr>
+                <td>{{ $p->nombre }}</td>
+                <td>{{ $p->descripcion }}</td>
+                <td>{{ $p->cantidad }}</td>
+                <td>$ {{$p->costo }}</td>
+                <td>
+                    <a class="btn btn-primary" href="/Editar/{{$p->id}}">Editar</a>
+                    <a class="btn btn-danger" href="/Eliminar/{{$p->id}}">Eliminar</a>
+                </td>
+            </tr>
+            @endforeach
+        @endif
     </table>
       
 @endsection
